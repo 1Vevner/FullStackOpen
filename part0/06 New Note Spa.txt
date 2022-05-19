@@ -1,0 +1,20 @@
+title New Note Spa
+
+note over Browser:
+User clicks save,
+spa.js pushes new_note_spa into notes 
+and uses DOM API to render it on to the end of notes
+end note over 
+
+note over Browser:
+spa.js send the server a POST request
+along with new_note_spa as Json string
+end note over 
+
+Browser->Server:HTTP POST new_note_spa
+
+note over Server:
+Server doesn't ask for a redirect
+end note over 
+
+Server-->Browser:HTTP Status code 201 Created
