@@ -1,0 +1,36 @@
+title New Note
+
+note over Browser:
+User clicks Save
+end note over 
+Browser->Server: HTTP Post to /exampleapp/new_note
+
+note over Server:
+Server requests Redirect to /exampleapp/notes
+Create new Json object Notes
+Push data from new_note to Notes
+end note over
+
+Server-->Browser: HTTP status code 302 Found
+
+note over Browser:
+Brower refreshes the page
+end note over 
+
+Server->Browser: HTTP Get /exampleapp/notes
+Server-->Browser:notes.html
+Browser->Server: HTTP Get /exampleapp/main.css
+Server-->Browser:main.css
+Browser->Server: HTTP Get /exampleapp/main.js
+Server-->Browser:main.js
+
+note over Browser:
+main.js requests new data.json from server
+end note over 
+
+Browser->Server: HTTP GET /exampleapp/data.json
+Server-->Browser: data.json
+
+note over Browser:
+notes displays data.json with new_note added
+end note over 
