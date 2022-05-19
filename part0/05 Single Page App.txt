@@ -1,0 +1,25 @@
+title Single Page App
+
+Browser->Server: HTTP Post to /exampleapp/new_note
+
+note over Server:
+Create new Json object Notes
+Push data from new_note to Notes
+Redirect to /exampleapp/notes
+end note over
+
+Server-->Browser: HTTP status code 302
+Server->Browser: Request  HTTP Get /exampleapp/notes
+Browser->Server: HTTP Get  /exampleapp/notes
+Server-->Browser:notes.html
+Browser->Server: HTTP Get /exampleapp/main.css
+Server-->Browser:main.css
+Browser->Server: HTTP Get /exampleapp/main.js
+Server-->Browser:main.js
+
+note over Browser:
+main.js requests new data.json from server
+end note over 
+
+Browser->Server: HTTP GET /exampleapp/data.json
+Server-->Browser: data.json
