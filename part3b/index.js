@@ -1,4 +1,6 @@
 const express = require('express')
+const morgan = require('morgan')
+const cors = require('cors')
 const app = express()
 
 //MIDDLEWARE
@@ -15,7 +17,9 @@ const unknownEndPoint = (response, request) =>{
 }
 
 app.use(express.json())
+app.use(cors())
 app.use(requestLogger)
+app.use(morgan('tiny'))
 
 const persons = [
     { 
